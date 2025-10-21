@@ -32,6 +32,7 @@ function App() {
             <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/test-404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </motion.main>
