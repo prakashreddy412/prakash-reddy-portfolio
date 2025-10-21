@@ -11,6 +11,7 @@ import Skills from './pages/Skills'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import PageNotFound from './pages/PageNotFound'
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
             <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </motion.main>
         

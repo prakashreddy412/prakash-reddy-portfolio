@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaYoutube, FaPaperPlane } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaYoutube, FaPaperPlane, FaExternalLinkAlt } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
 
 const Contact = () => {
@@ -310,6 +310,101 @@ const Contact = () => {
             </form>
           </motion.div>
         </div>
+
+        {/* Interactive Map Section */}
+        <motion.div
+          className="mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <div className="bg-darkGray border border-neonGreen/30 rounded-lg p-6 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-neonGreen mb-6 text-center flex items-center justify-center">
+              <FaMapMarkerAlt className="mr-2" />
+              System Location
+            </h3>
+            
+            {/* Hacking-themed Map Interface */}
+            <div className="bg-black border border-neonCyan/30 rounded-lg p-4 font-mono">
+              <div className="text-neonCyan mb-4">
+                <span className="text-neonGreen">$</span> locate --user=prakash --coordinates
+              </div>
+              <div className="text-gray-300 mb-2">Searching GPS coordinates...</div>
+              <div className="text-neonGreen mb-4">Found: Hyderabad, India (17.3850° N, 78.4867° E)</div>
+              
+              {/* Interactive Map with Hacking Theme */}
+              <div className="relative bg-gradient-to-br from-neonGreen/10 to-neonCyan/10 rounded border border-neonGreen/30 p-4 mb-4">
+                <div className="text-center text-neonGreen font-mono text-sm mb-4">
+                  [INTERACTIVE MAP - HACKING THEME]
+                </div>
+                
+                {/* Grid-based Map Visualization */}
+                <div className="grid grid-cols-12 gap-1 mb-4">
+                  {Array.from({ length: 144 }).map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className={`h-3 rounded ${
+                        Math.random() > 0.8 ? 'bg-neonGreen' : 
+                        Math.random() > 0.6 ? 'bg-neonCyan' : 
+                        Math.random() > 0.4 ? 'bg-neonPurple' : 'bg-gray-600'
+                      }`}
+                      animate={{
+                        opacity: [0.3, 1, 0.3],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: Math.random() * 3,
+                      }}
+                    />
+                  ))}
+                </div>
+                
+                {/* Location Marker */}
+                <div className="text-center">
+                  <motion.div
+                    className="inline-block text-2xl"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                    }}
+                  >
+                    🎯
+                  </motion.div>
+                  <div className="text-neonGreen text-sm mt-2">Target: Hyderabad, India</div>
+                </div>
+              </div>
+              
+              {/* Map Actions */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <motion.a
+                  href="https://maps.google.com/?q=Hyderabad,India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-2 px-4 py-2 bg-neonGreen text-black font-bold rounded-lg hover:bg-neonCyan transition-all duration-300 hover-effect"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaExternalLinkAlt />
+                  <span>Open in Google Maps</span>
+                </motion.a>
+                
+                <motion.button
+                  onClick={() => navigator.clipboard.writeText('17.3850, 78.4867')}
+                  className="flex items-center justify-center space-x-2 px-4 py-2 border-2 border-neonCyan text-neonCyan font-bold rounded-lg hover:bg-neonCyan hover:text-black transition-all duration-300 hover-effect"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>Copy Coordinates</span>
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Terminal-style Footer */}
         <motion.div
