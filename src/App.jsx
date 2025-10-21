@@ -26,13 +26,13 @@ function App() {
           transition={{ duration: 1 }}
         >
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<NotFound />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/test-404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </motion.main>

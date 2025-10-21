@@ -171,7 +171,7 @@ const NotFound = () => {
     if (distance < 100) {
       setIsUnlocked(true)
       setTimeout(() => {
-        navigate('/')
+        navigate('/home')
       }, 2000)
     }
   }
@@ -419,7 +419,7 @@ const NotFound = () => {
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
-              to="/"
+              to="/home"
               className="flex items-center space-x-2 px-6 py-3 bg-neonGreen text-black font-bold rounded-lg hover:bg-neonCyan transition-all duration-300 hover-effect"
             >
               <FaHome />

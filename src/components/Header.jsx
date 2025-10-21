@@ -17,7 +17,7 @@ const Header = () => {
   }, [])
 
   const navItems = [
-    { name: 'Home', path: '/' },
+    { name: 'Home', path: '/home' },
     { name: 'About', path: '/about' },
     { name: 'Experience', path: '/experience' },
     { name: 'Skills', path: '/skills' },
@@ -42,7 +42,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link to="/" className="flex items-center space-x-2">
+            <Link to="/home" className="flex items-center space-x-2">
               <span className="text-neonCyan">&lt;</span>
               <span>Prakash</span>
               <span className="text-neonCyan">/&gt;</span>
