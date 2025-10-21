@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-darkBg text-white font-hacker;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff9c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffff;
+}
+
+/* Selection color */
+::selection {
+  background: #00ff9c;
+  color: #000;
+}
+
+/* Custom cursor */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #00ff9c 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  box-shadow: 0 0 20px #00ff9c, 0 0 40px #00ff9c;
+}
+
+.custom-cursor.hover {
+  transform: scale(1.5);
+  background: radial-gradient(circle, #00ffff 0%, transparent 70%);
+  box-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff;
+}
+
+/* Matrix background */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+/* Glitch effect */
+.glitch {
+  position: relative;
+  color: #00ff9c;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-1 0.5s infinite;
+  color: #ff0000;
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-2 0.5s infinite;
+  color: #0000ff;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, -2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(-2px, 2px); }
+}
+
+/* Terminal style */
+.terminal {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #00ff9c;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'Fira Code', monospace;
+  box-shadow: 0 0 20px rgba(0, 255, 156, 0.3);
+}
+
+.terminal::before {
+  content: '> ';
+  color: #00ff9c;
+  font-weight: bold;
+}
+
+/* Neon button */
+.neon-btn {
+  @apply relative px-6 py-3 bg-transparent border-2 border-neonGreen text-neonGreen font-bold uppercase tracking-wider transition-all duration-300;
+  box-shadow: 0 0 10px rgba(0, 255, 156, 0.3);
+}
+
+.neon-btn:hover {
+  @apply bg-neonGreen text-black;
+  box-shadow: 0 0 20px rgba(0, 255, 156, 0.6), 0 0 30px rgba(0, 255, 156, 0.4);
+  transform: translateY(-2px);
+}
+
+.neon-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.neon-btn:hover::before {
+  left: 100%;
+}
+
+/* Skill chip */
+.skill-chip {
+  @apply px-4 py-2 bg-darkGray border border-neonGreen text-neonGreen rounded-full text-sm font-medium transition-all duration-300;
+  box-shadow: 0 0 10px rgba(0, 255, 156, 0.2);
+}
+
+.skill-chip:hover {
+  @apply bg-neonGreen text-black;
+  box-shadow: 0 0 20px rgba(0, 255, 156, 0.6);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Project card */
+.project-card {
+  @apply bg-darkGray border border-lightGray rounded-lg p-6 transition-all duration-300;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+  @apply border-neonGreen;
+  box-shadow: 0 0 20px rgba(0, 255, 156, 0.3);
+  transform: translateY(-5px) rotateX(5deg);
+}
+
+/* Timeline */
+.timeline-item {
+  @apply relative pl-8 pb-8;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #00ff9c, transparent);
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background: #00ff9c;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff9c;
+}
+
+/* Typewriter cursor */
+.typewriter-cursor {
+  @apply inline-block w-0.5 h-6 bg-neonGreen ml-1;
+  animation: blink 1s infinite;
+}
+
+/* CRT flicker */
+.crt-flicker {
+  animation: flicker 0.15s infinite linear;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+  
+  body {
+    cursor: auto;
+  }
+}
